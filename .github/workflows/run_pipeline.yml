@@ -22,6 +22,8 @@ jobs:
         # A requirements file to install from
         requirements: requirements.txt
         # A constraints file to use
+    - name: Run fastapi app using uvicorn server
+      run: uvicorn main:app --reload
         
           
 
