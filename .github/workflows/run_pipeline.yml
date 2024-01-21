@@ -1,14 +1,24 @@
-name: Fast API
-run.name: ${{github.actor}} is running FastAPI
-on: [push]
+name: Build and deploy Fast API
+on: 
+  push:
+    branches: 
+      - main
 jobs:
-  Run-FastAPI-Actions:
+  Build-and-deploy-Fast-API:
+    name: Build and deploy
     runs-on: ubuntu-latest
     steps:
-      -run: echo "The job was automatically triggered by a ${{github.event_name}} event"
-      -run: echo "Running on ${{runner.os}} server hosted by github"
-      -name: Check out repository code
-        uses: actions/checkout@v4
-      -run: "github.repository" repository has been cloned to the runner"
-      -run: pip install requirements.txt
-      -run: uvicorn main:app
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10
+      - name: install pip
+        run: pip install pip
+      - name: install requirements.txt
+        run: pip install requirements.txt
+      - name: Start app
+        run: uvicorn main:app
+        
+     
