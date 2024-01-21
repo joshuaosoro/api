@@ -8,18 +8,10 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Set up python
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: install pip
-        run: pip install pip
-      - name: install requirements.txt
-        run: pip install requirements.txt
-      - name: Start app
-        run: uvicorn main:app
-        
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+    - run: python --version
+     
      
